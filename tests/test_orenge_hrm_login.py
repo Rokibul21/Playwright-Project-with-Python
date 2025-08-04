@@ -16,15 +16,3 @@ def test_orengeHrm_example(page: Page) -> None:
     expect(page.get_by_role("button", name="Upgrade")).to_be_visible()
     homepage.click_recruitment()
     homepage.click_dashboard()
-   
-
-
-    
-
-    # page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
-    # page.get_by_role("textbox", name="Username").fill("Admin")
-    # page.get_by_role("textbox", name="Password").fill("admin123")
-    # page.get_by_role("button", name="Login").click()
-    # expect(page.get_by_role("button", name="Upgrade")).to_be_visible()
-    # page.get_by_role("link", name="Recruitment").click()
-    # page.get_by_role("link", name="Dashboard").click()
