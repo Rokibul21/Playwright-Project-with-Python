@@ -16,3 +16,15 @@ def test_orengeHrm_example(page: Page) -> None:
     expect(page.get_by_role("button", name="Upgrade")).to_be_visible()
     homepage.click_recruitment()
     homepage.click_dashboard()
+
+
+def test_orengeHrm_invalid_login(page: Page) -> None:
+    login_page = OrangeHRMLoginPage(page)
+    page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login", wait_until="domcontentloaded")
+    # page.wait_for_timeout(10000)  # Wait for 3 seconds to ensure the page is fully loaded
+    login_page.user_name("Admin1")
+    login_page.password("admin1234")
+    login_page.click_login()
+    error_message = page.locator(".oxd-alert-content-text")
+    expect(error_message).to_be_visible()
+    expect(error_message).to_have_text(re.compile("Invalid credentials"))
