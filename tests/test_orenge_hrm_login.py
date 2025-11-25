@@ -12,6 +12,7 @@ def test_orengeHrm_example(page: Page) -> None:
     # page.wait_for_timeout(10000)  # Wait for 3 seconds to ensure the page is fully loaded
     login_page.user_name("Admin")
     login_page.password("admin123")
+    homepage.get_page_title()
     login_page.click_login()
     expect(page.get_by_role("button", name="Upgrade")).to_be_visible()
     homepage.click_recruitment()

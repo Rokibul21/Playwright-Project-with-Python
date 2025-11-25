@@ -12,3 +12,6 @@ class OrengeHomepage:
 
     def click_dashboard(self):
         self.dashboard_link.click()
+
+    def get_page_title(self) -> str:
+        return self.page.title()
